@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
+/* PIXELUP LABS tokens — ink on paper, one blue accent (from the website). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  color-scheme: light;
+  --page: #f6f6f4;
+  --surface: #ffffff;
+  --surface-2: #f1f1ee;
+  --ink: #0c0c0c;
+  --ink-2: #4a4a47;
+  --muted: #6f6e69;
+  --line: #e4e3dd;
+  --line-strong: #cfcdc5;
+  --accent: #2549e6;
+  --accent-ink: #ffffff;
+  --accent-wash: #eaeefd;
+  --grid: #ecebe6;
+  --good: #0a7a0a;
+  --good-wash: #e6f4e6;
+  --warn: #8a5a00;
+  --warn-dot: #e0a000;
+  --warn-wash: #fdf3dc;
+  --bad: #c03030;
+  --bad-wash: #fbe9e9;
+  --info: #2549e6;
+  --info-wash: #eaeefd;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0c0c0c;
+    --surface: #141414;
+    --surface-2: #1c1c1b;
+    --ink: #f0efec;
+    --ink-2: #c3c2b7;
+    --muted: #94938c;
+    --line: #2a2a28;
+    --line-strong: #3a3a37;
+    --accent: #5b7cf5;
+    --accent-ink: #0c0c0c;
+    --accent-wash: #18204a;
+    --grid: #222220;
+    --good: #3cc23c;
+    --good-wash: #10280f;
+    --warn: #f2b631;
+    --warn-dot: #f2b631;
+    --warn-wash: #2c2208;
+    --bad: #ef6b6b;
+    --bad-wash: #331414;
+    --info: #8aa2ff;
+    --info-wash: #18204a;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0c0c0c;
+  --surface: #141414;
+  --surface-2: #1c1c1b;
+  --ink: #f0efec;
+  --ink-2: #c3c2b7;
+  --muted: #94938c;
+  --line: #2a2a28;
+  --line-strong: #3a3a37;
+  --accent: #5b7cf5;
+  --accent-ink: #0c0c0c;
+  --accent-wash: #18204a;
+  --grid: #222220;
+  --good: #3cc23c;
+  --good-wash: #10280f;
+  --warn: #f2b631;
+  --warn-dot: #f2b631;
+  --warn-wash: #2c2208;
+  --bad: #ef6b6b;
+  --bad-wash: #331414;
+  --info: #8aa2ff;
+  --info-wash: #18204a;
 }
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-wash: var(--accent-wash);
+  --color-good: var(--good);
+  --color-good-wash: var(--good-wash);
+  --color-warn: var(--warn);
+  --color-warn-dot: var(--warn-dot);
+  --color-warn-wash: var(--warn-wash);
+  --color-bad: var(--bad);
+  --color-bad-wash: var(--bad-wash);
+  --color-info: var(--info);
+  --color-info-wash: var(--info-wash);
+  --font-sans: var(--font-switzer), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+body {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Recharts: keep focus outlines off the SVG wrapper, on the bars instead. */
+.recharts-wrapper:focus, .recharts-surface:focus { outline: none; }
